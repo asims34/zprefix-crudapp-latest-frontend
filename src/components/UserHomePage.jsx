@@ -28,6 +28,31 @@ const UserHomePage = () => {
   //     }
   //   }, []);
 
+  // const Card2 = styled.div`
+  //   background-color: lightblue;
+  //   width: 300px;
+  //   margin: 30px auto;
+  //   minheight: 200px;
+  //   boxsizing: border-box;
+  // `;
+
+  const CardComponent = {
+    //top div
+    width: "300px",
+    margin: "30px auto",
+    background: "lightblue",
+    minHeight: "200px",
+    boxSizing: "border-box",
+  };
+
+  const Header = {
+    //h1
+    padding: "10px",
+    textAlign: "center",
+    color: "white",
+    fontSize: "22px",
+  };
+
   useEffect(() => {
     fetch(`${BACKEND_URL}/inventory/`)
       .then((response) => response.json())
@@ -43,11 +68,44 @@ const UserHomePage = () => {
       <h2>{item.username}</h2>
       {currentInventory.map((products, index) => {
         if (products.users_id === item.id) {
-          return <h1 key={index}>{products.item_name}</h1>;
+          return (
+            <h1
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-between",
+                alignItems: "center",
+                padding: "10px",
+                width: "300px",
+                margin: "30px auto",
+                background: "lightblue",
+                minHeight: "200px",
+                boxSizing: "border-box",
+              }}
+              key={index}
+            >
+              {products.item_name}
+            </h1>
+          );
         }
       })}
-      <Button onClick={() => navigate("/modify")}>Modify</Button>
-      <Button onClick={() => navigate("/guest")}>All Items</Button>
+      <Button
+        style={{
+          width: "30%",
+          marginLeft: "1rem",
+          justifyContent: "space-between",
+        }}
+        onClick={() => navigate("/modify")}
+      >
+        Create
+      </Button>
+      <Button
+        // variant="outline-info"
+        style={{ width: "30%", marginRight: "1rem" }}
+        onClick={() => navigate("/view-all")}
+      >
+        All Items
+      </Button>
     </div>
   );
 };

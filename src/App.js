@@ -12,6 +12,7 @@ import NavBar from "./components/NavBar";
 import { useContext } from "react";
 // import {LoginForm} from "./components/LoginForm";
 import { InventoryContext } from "./components/InventoryContext";
+import MembersViewAll from "./components/MembersViewAll";
 // import { Container, AppBar, Typography, Grow, Grid } from "material-ui/core";
 
 // export const UserContext = React.createContext();
@@ -49,6 +50,7 @@ function App() {
           <Route path="/login-form" element={<LoginForm />} />
           <Route path="/signup" element={<SignUpForm />} />
           <Route path="/item-details" element={<ItemDetails />} />
+          <Route path="/view-all" element={<MembersViewAll />} />
         </Routes>
       </div>
     </InventoryContext.Provider>
