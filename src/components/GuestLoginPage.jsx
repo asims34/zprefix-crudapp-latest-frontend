@@ -14,11 +14,12 @@ const GuestLoginPage = () => {
   useEffect(() => {
     fetch(`${BACKEND_URL}/inventory`)
       .then((res) => res.json())
-      .then((data) => console.data(data));
+      .then((data) => setGuestData(data));
   }, []);
 
-  return(
-
+  return (
+    <div style={{ width: "90%", margin: "auto auto", textAlign: "center" }}>
+      <h1>Guest, Welcome to our Inventory Page </h1>
       {guestData.map((item, index) => (
         <div
           key={index}
@@ -45,11 +46,11 @@ const GuestLoginPage = () => {
                 justifyContent: "space-between",
               }}
             ></div>
-            </div>
-            </div>
-            
-   ))}
-    )
-}
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+};
 
 export default GuestLoginPage;
