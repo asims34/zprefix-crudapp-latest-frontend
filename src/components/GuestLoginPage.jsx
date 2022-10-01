@@ -6,6 +6,7 @@ import { Button } from "react-bootstrap";
 import Modal from "react-bootstrap/Modal";
 import axios from "axios";
 import { InventoryContext } from "./InventoryContext";
+import { BACKEND_URL } from "../utils";
 
 const GuestLoginPage = () => {
   const { inventoryItems, setInventoryItems } = useContext(InventoryContext);
@@ -28,7 +29,7 @@ const GuestLoginPage = () => {
   const saveUpdatedItem = () => {
     console.log(modifyItem);
     axios
-      .patch(`http://localhost:8000/inventory/${modifyItem.id}`, modifyItem)
+      .patch(`${BACKEND_URL}/inventory/${modifyItem.id}`, modifyItem)
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
 
@@ -56,7 +57,7 @@ const GuestLoginPage = () => {
   };
 
   useEffect(() => {
-    fetch("http://localhost:8000/inventory")
+    fetch(`${BACKEND_URL}/inventory`)
       .then((res) => res.json())
       .then((data) => setInventoryItems(data));
   }, []);
@@ -64,7 +65,7 @@ const GuestLoginPage = () => {
   const handleDeleteItem = (id) => {
     console.log(id);
     axios
-      .delete(`http://localhost:8000/inventory/${id}`)
+      .delete(`${BACKEND_URL}/inventory/${id}`)
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
 
