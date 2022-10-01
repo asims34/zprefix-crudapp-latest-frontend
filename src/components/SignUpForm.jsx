@@ -4,7 +4,7 @@ import { Form } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { hasUnreliableEmptyValue } from "@testing-library/user-event/dist/utils";
+import { BACKEND_URL } from "../utils";
 
 const SignUpForm = () => {
   const navigate = useNavigate();
@@ -51,7 +51,7 @@ const SignUpForm = () => {
     //   });
 
     axios
-      .post("http://localhost:8000/users/signup", {
+      .post(`${BACKEND_URL}/users/signup`, {
         // post,
         first_name: login.first_name,
         last_name: login.last_name,

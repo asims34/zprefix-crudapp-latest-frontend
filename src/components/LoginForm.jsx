@@ -5,7 +5,7 @@ import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import NavBar from "./NavBar";
 import { InventoryContext } from "./InventoryContext";
-import App from "../App";
+import { BACKEND_URL } from "../utils";
 
 // const passContext = createContext({
 //     data: null,
@@ -28,7 +28,7 @@ const LoginForm = () => {
   const handleLoginClick = (event) => {
     event.preventDefault();
     axios
-      .post("http://localhost:8000/users/login", {
+      .post(`${BACKEND_URL}/users/login`, {
         // post,
         username: event.target.username.value,
         password: event.target.password.value,
@@ -75,7 +75,7 @@ const LoginForm = () => {
 
   //   const userAuthenticated = () => {
   //     axios
-  //       .get("http://localhost:8000/users/isUserAuth", {
+  //       .get("${BACKEND_URL}/users/isUserAuth", {
   //         headers: {
   //           "x-access-token": localStorage.getItem("token"),
   //         },

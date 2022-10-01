@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { BACKEND_URL } from "../utils";
 
 const ItemDetails = () => {
   const [details, setDetails] = useState({});
@@ -7,7 +8,7 @@ const ItemDetails = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    fetch(`http://localhost:8000/inventory/${id}`)
+    fetch(`${BACKEND_URL}/inventory/${id}`)
       .then((res) => res.json())
       .then((data) => setDetails(data));
   }, [id]);

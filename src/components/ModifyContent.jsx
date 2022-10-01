@@ -4,7 +4,7 @@ import { Form } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { hasUnreliableEmptyValue } from "@testing-library/user-event/dist/utils";
+import { BACKEND_URL } from "../utils";
 
 const ModifyContent = () => {
   const navigate = useNavigate();
@@ -51,7 +51,7 @@ const ModifyContent = () => {
     //   });
 
     axios
-      .post("http://localhost:8000/inventory/", {
+      .post(`${BACKEND_URL}/inventory/`, {
         // post,
         item_name: post.item_name,
         description: post.description,

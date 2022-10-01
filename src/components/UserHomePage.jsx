@@ -4,6 +4,7 @@ import { Button, Form } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { LoginForm } from "./LoginForm";
 import { InventoryContext } from "./InventoryContext";
+import { BACKEND_URL } from "../utils";
 
 const UserHomePage = () => {
   const [userItems, setUserItems] = useState([]);
@@ -28,7 +29,7 @@ const UserHomePage = () => {
   //   }, []);
 
   useEffect(() => {
-    fetch("http://localhost:8000/inventory/")
+    fetch(`${BACKEND_URL}/inventory/`)
       .then((response) => response.json())
       .then((data) => setCurrentInventory(data));
   }, []);
