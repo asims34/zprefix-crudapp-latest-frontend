@@ -98,6 +98,14 @@ const ModifyContent = () => {
             onChange={handleChange}
             style={{ marginBottom: "1rem" }}
           />
+          <Form.Control
+            name="users_id"
+            placeholder="users_id"
+            value={post.users_id}
+            type="number"
+            onChange={handleChange}
+            style={{ marginBottom: "1rem" }}
+          />
         </Form.Group>
         <Button
           onClick={handleClick}
